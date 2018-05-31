@@ -10,7 +10,7 @@ PROC SQL;
 	title "Generic freq by string";
 	select distinct(lowcase(cm.generic)), count(*) as cnt
 	from Work.database1 as cm
-		inner join database2 as hc
+		inner join Work.database2 as hc
 			on find(lowcase(hc.GNN), lowcase(cm.generic)) > 0
 	group by lowcase(cm.generic)
 	order by cnt desc;
